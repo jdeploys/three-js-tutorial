@@ -1,8 +1,11 @@
 "use client";
 
 import { Canvas, MeshProps, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import { useRef, useState } from "react";
 import { Mesh } from "three";
+import { Stars } from "@/components/Stars";
+import SplineExample from "@/components/SplineExample";
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // https://discoverthreejs.com/book/introduction/get-threejs/
 
@@ -30,7 +33,7 @@ function Box(props: MeshProps) {
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}
     >
-      <boxGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[0.1, 0.1, 0.1]} />
       <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
     </mesh>
   );
@@ -38,10 +41,12 @@ function Box(props: MeshProps) {
 
 const Page = () => {
   return (
-    <Canvas>
+    <Canvas camera={{ position: [0, 0, 1] }}>
       <ambientLight intensity={0.1} />
-      <directionalLight color="red" position={[0, 0, 5]} />
+      <directionalLight color="white" intensity={8} position={[10, 10, 10]} />
       <Box position={[0, 0, 0]} />
+      <Stars />
+      <OrbitControls />
     </Canvas>
   );
 };
