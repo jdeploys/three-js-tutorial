@@ -4,7 +4,6 @@
 
 import useSpline from "@splinetool/r3f-spline";
 import { OrthographicCamera } from "@react-three/drei";
-import { Euler } from '@react-three/fiber/dist/declarations/src/three-types';
 
 export default function Scene({ ...props }) {
   const { nodes, materials } = useSpline(
@@ -2113,8 +2112,8 @@ export default function Scene({ ...props }) {
             makeDefault={true}
             far={10000}
             near={-50000}
-            zoom={0.2}
-            position={[135.06, 132.31, 988.56]}
+            zoom={0.5}
+            position={[135.06, 200, 988.56]}
             rotation={[0.15, 0.03, 0.5]}
           />
           <hemisphereLight
